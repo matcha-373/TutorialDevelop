@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.techacademy.entity.User;
 import com.techacademy.service.UserService;
 
 @Controller
@@ -23,8 +21,7 @@ public class UserController {
     @GetMapping("/list")
     public String getList(Model model) {
         // 全件検索結果をModelに登録
-        List<User> userlist = service.getUserList();
-        model.addAttribute("userlist", userlist);
+        model.addAttribute("userlist", service.getUserList());
         // user/list.htmlに画面遷移
         return "user/list";
     }
